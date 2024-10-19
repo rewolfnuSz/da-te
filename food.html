@@ -1,59 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DATE</title>
-    <link rel="stylesheet" href="css/food.css" />
-  </head>
-  <body>
-    <div id="foodquestion">
-      <b>What would you like to eat?</b>
-    </div>
 
-    <div class="food-selection">
-      <div class="food-item">
-        <img src="food/sushi.jpeg" alt="Sushi" />
-        <label
-          ><input
-            type="checkbox"
-            name="food"
-            value="Sushi"
-          />
-          Sushi</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/bundaumamtom.webp" alt="bundaumamtom" />
-        <label
-          ><input type="checkbox" name="food" value="bundaumamtom" /> Bun Dau Mam Tom</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/koreanfood.jpeg" alt="koreanfood" />
-        <label
-          ><input type="checkbox" name="food" value="Korean food" /> Korean Food</label
-        >
-      </div>
-      <div class="food-item">
-        <img src="food/bltmhtl.jpg" alt="bltmhtl" />
-        <label><input type="checkbox" name="food" value="bltmhtl" /> BLTM&HTL</label>
-      </div>
-      <div class="food-item">
-        <img src="food/banhcuon.jpg" alt="banhcuon" />
-        <label><input type="checkbox" name="food" value="banhcuon" /> Banh Cuon</label>
-      </div>
-      <div class="food-item">
-        <img src="food/haidilao.jpg" alt="Haidilao" />
-        <label><input type="checkbox" name="food" value="Haidilao" /> Haidilao</label>
-      </div>
-      <div class="food-item">
-        <img src="food/xienban.jpg" alt="xienban" />
-        <label><input type="checkbox" name="food" value="xienban" /> Xien Ban</label>
-      </div>
-      <br/>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATE</title>
+  <link rel="stylesheet" href="css/food.css" />
+</head>
+
+<body>
+  <div id="foodquestion">
+    <b>What would you like to eat?</b>
+  </div>
+
+  <div class="food-selection">
+    <div class="food-item">
+      <img src="food/sushi.jpeg" alt="Sushi" />
+      <label>
+        Sushi</label>
+    </div>
+    <div class="food-item">
+      <img src="food/bundaumamtom.webp" alt="bundaumamtom" />
+      <label>Bun Dau Mam Tom</label>
+    </div>
+    <div class="food-item">
+      <img src="food/koreanfood.jpeg" alt="koreanfood" />
+      <label>Korean Food</label>
+    </div>
+    <div class="food-item">
+      <img src="food/bltmhtl.jpg" alt="bltmhtl" />
+      <label> BLTM&HTL</label>
+    </div>
+    <div class="food-item">
+      <img src="food/banhcuon.jpg" alt="banhcuon" />
+      <label>Banh Cuon</label>
+    </div>
+    <div class="food-item">
+      <img src="food/haidilao.jpg" alt="Haidilao" />
+      <label> Haidilao</label>
+    </div>
+    <div class="food-item">
+      <img src="food/xienban.jpg" alt="xienban" />
+      <label>Xien Ban</label>
+    </div>
+    <br />
     <button class="button" onclick="location.href='activities.html'">
       CONTINUE ૮ ˶ᵔ ᵕ ᵔ˶ ა
     </button>
-  </body>
+
+    <script>
+      document.querySelectorAll('.food-item img').forEach((img) => {
+        img.addEventListener('click', function () {
+          this.parentElement.classList.toggle('selected'); // Thêm hoặc xóa lớp 'selected'
+        });
+      });
+
+      // Tạo trái tim và thêm vào body
+    function createHeart() {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      document.body.appendChild(heart);
+
+      // Vị trí ngẫu nhiên cho trái tim (theo chiều ngang)
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = 100 + "vh";  // Bắt đầu từ dưới cùng của trang
+
+      // Xoá trái tim sau khi hoàn thành hoạt ảnh (5s)
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 1000);
+
+    </script>
+
+</body>
+
 </html>

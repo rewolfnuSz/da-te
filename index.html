@@ -1,32 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DATE</title>
-    <link rel="stylesheet" href="css/valentine.css" />
-  </head>
-  <body>
-    <div id="valentineQuestion"><b>Will You Go On a Date With Me?</b></div>
-    <button class="answerButton" onclick="location.href='thankyou.html'">
-      Yes ૮꒰ ˶• ༝ •˶꒱ა ♡
-    </button>
-    <button class="answerButton" id="noButton">I no no wanna o(╥﹏╥)o</button>
-    <br />
-    <img src="cat.gif" alt="cat asking question" class="responsive" />
 
-    <script>
-      document
-        .getElementById("noButton")
-        .addEventListener("click", function () {
-          var yesButton = document.querySelector(
-            'button[onclick*="thankyou.html"]'
-          );
-          var currentFontSize = parseInt(
-            window.getComputedStyle(yesButton).fontSize
-          );
-          yesButton.style.fontSize = currentFontSize + 10 + "px"; // Increase font size by 5px
-        });
-    </script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATE</title>
+  <link rel="stylesheet" href="css/valentine.css" />
+</head>
+
+<body>
+  <div id="valentineQuestion"><b>Will You Go On a Date With Me?</b></div>
+  <button class="answerButton" onclick="location.href='thankyou.html'">
+    Yes ૮꒰ ˶• ༝ •˶꒱ა ♡
+  </button>
+  <button class="answerButton" id="noButton">I no no wanna o(╥﹏╥)o</button>
+  <br />
+  <img src="cat.gif" alt="cat asking question" class="responsive" />
+  <div class="heart"></div>
+  <script>
+    document
+      .getElementById("noButton")
+      .addEventListener("click", function () {
+        var yesButton = document.querySelector(
+          'button[onclick*="thankyou.html"]'
+        );
+        var currentFontSize = parseInt(
+          window.getComputedStyle(yesButton).fontSize
+        );
+        yesButton.style.fontSize = currentFontSize + 10 + "px";
+      });
+
+    // Tạo trái tim và thêm vào body
+    function createHeart() {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      document.body.appendChild(heart);
+
+      // Vị trí ngẫu nhiên cho trái tim (theo chiều ngang)
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = 100 + "vh";  // Bắt đầu từ dưới cùng của trang
+
+      // Xoá trái tim sau khi hoàn thành hoạt ảnh (5s)
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 1000);
+
+  </script>
+</body>
+
 </html>

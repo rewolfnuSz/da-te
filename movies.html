@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DATE</title>
-    <link rel="stylesheet" href="css/movies.css" />
-  </head>
-  <body>
-    <div id="moviequestion">If you chose movie, what are we watching then?~</div>
 
-    <div class="movie-selection">
-      <div class="movie-item">
-        <img src="movies/whenmarniewasthere.jpg" alt="whenmarniewasthere" />
-        <label
-          ><input type="checkbox" name="movie" value="whenmarniewasthere" /> When Marnie Was There</label
-        >
-      </div>
-      <div class="movie-item">
-        <img src="movies/chissweethome.jpg" alt="chissweethome" />
-        <label
-          ><input type="checkbox" name="movie" value="chissweethome" /> Chi's Sweet Home</label
-        >
-      </div>
-      <div class="movie-item">
-        <img src="movies/eddietheeagle.jpg" alt="eddietheeagle" />
-        <label><input type="checkbox" name="movie" value="eddietheeagle" /> Eddie The Eagle</label>
-      </div>
-      <div class="movie-item">
-        <img src="movies/shutter.jpg" alt="shutter" />
-        <label
-          ><input type="checkbox" name="movie" value="shutter" /> Shutter</label
-        >
-      </div>
-      <div class="movie-item">
-        <img src="movies/theconjurings.jpg" alt="theconjurings" />
-        <label
-          ><input type="checkbox" name="movie" value="theconjurings" /> The Conjurings</label
-        >
-      </div>
-      <div class="movie-item">
-        <img src="movies/thewindrises.jpg" alt="thewindrises" />
-        <label
-          ><input type="checkbox" name="movie" value="thewindrises" />
-          The Wind Rises</label
-        >
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DATE</title>
+  <link rel="stylesheet" href="css/movies.css" />
+</head>
+
+<body>
+  <div id="moviequestion">If you chose movie, what are we watching then?~</div>
+
+  <div class="movie-selection">
+    <div class="movie-item">
+      <img src="movies/whenmarniewasthere.jpg" alt="whenmarniewasthere" />
+      <label> When Marnie Was There</label>
     </div>
-    <button class="button" onclick="location.href='lastpage.html'">
-      CONTINUE ପ꒰ ˶• ༝ •˶꒱ଓ 🤍
-    </button>
-  </body>
+    <div class="movie-item">
+      <img src="movies/chissweethome.jpg" alt="chissweethome" />
+      <label>Chi's Sweet Home</label>
+    </div>
+    <div class="movie-item">
+      <img src="movies/eddietheeagle.jpg" alt="eddietheeagle" />
+      <label>Eddie The Eagle</label>
+    </div>
+    <div class="movie-item">
+      <img src="movies/shutter.jpg" alt="shutter" />
+      <label>Shutter</label>
+    </div>
+    <div class="movie-item">
+      <img src="movies/theconjurings.jpg" alt="theconjurings" />
+      <label>The Conjurings</label>
+    </div>
+    <div class="movie-item">
+      <img src="movies/thewindrises.jpg" alt="thewindrises" />
+      <label>
+        The Wind Rises</label>
+    </div>
+  </div>
+  <button class="button" onclick="location.href='lastpage.html'">
+    CONTINUE ପ꒰ ˶• ༝ •˶꒱ଓ 🤍
+  </button>
+
+  <script>
+    document.querySelectorAll('.movie-item img').forEach((img) => {
+      img.addEventListener('click', function () {
+        this.parentElement.classList.toggle('selected'); // Thêm hoặc xóa lớp 'selected'
+      });
+    });
+
+    // Tạo trái tim và thêm vào body
+    function createHeart() {
+      let heart = document.createElement("div");
+      heart.classList.add("heart");
+      document.body.appendChild(heart);
+
+      // Vị trí ngẫu nhiên cho trái tim (theo chiều ngang)
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.top = 100 + "vh";  // Bắt đầu từ dưới cùng của trang
+
+      // Xoá trái tim sau khi hoàn thành hoạt ảnh (5s)
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 1000);
+  </script>
+</body>
+
 </html>
